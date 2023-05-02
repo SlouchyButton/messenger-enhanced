@@ -1,0 +1,14 @@
+[Desktop Entry]
+Categories=Network
+Comment=Facebook Messenger webapp electron wrapper with enhancements.
+Exec='Messenger enhanced' %U
+Icon=[REPO LOCATION]/messenger-enhanced/images/logo.png
+Name=Messenger Enhanced
+Name[en_US]=Messenger Enhanced
+Path=[REPO LOCATION]/messenger-enhanced/out/Messenger\senhanced-linux-x64
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=Messenger Enhanced
+Version=1.0
+NoDisplay=false
