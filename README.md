@@ -7,7 +7,7 @@ This project mainly exists, because [Caprine](https://github.com/sindresorhus/ca
 
 Project uses dark mode styling from this project, with owner's approval: [jerry1100/messenger-dark-theme](https://github.com/jerry1100/messenger-dark-theme)
 
-Icon is specifically this bad on purpose to play it safe in regards to Trademark (since the logo is trademarked by Meta). Even tho the logo that is trademarked seems to be the old (blue-only logo), I want to play it safe. If you want to use official logo of Messenger app, there is a Wikimedia page with Messenger logo in svg that you can download, convert to png and replace the logo in images/ folder.
+Icon is specifically this bad on purpose to play it safe in regards to trademark (since the logo is trademarked by Meta). Even tho the logo that is trademarked seems to be the old (blue-only logo), I want to play it safe. If you want to use official logo of Messenger app, there is a Wikimedia page with Messenger logo in svg that you can download, convert to png and replace the logo in images/ folder.
 
 ### Features
 - Native notifications
@@ -18,6 +18,9 @@ Icon is specifically this bad on purpose to play it safe in regards to Trademark
 
 ### Compilation, build, running
 `npm install`
+
 `npm run start` - start Messenger enhanced
+
 `npm run make` - create zip file with executable app (also creates folder with contents of the zip), use this to prepare executables for .desktop file
+
 *Don't forget to modify the .desktop file if you are going to use it. You have to replace "[REPO LOCATION]" with location where you cloned this repository*
