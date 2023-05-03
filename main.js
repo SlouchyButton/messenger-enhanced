@@ -35,7 +35,8 @@ const createWindow = () => {
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             //webviewTag: true
-        }
+        },
+        icon: path.join(__dirname, '/images/logo.png')
     })
 
     win.setMenuBarVisibility(false)
