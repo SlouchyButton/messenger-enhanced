@@ -1,10 +1,10 @@
 const { app, BrowserWindow, ipcMain, nativeTheme,
     shell, /*Menu, MenuItem,*/ clipboard, Notification, nativeImage } = require('electron')
-const contextMenu = require('electron-context-menu');
+const contextMenu = require('electron-context-menu')
 const path = require('path')
 const fs = require('fs')
-var dbus = require('dbus-native');
-var sessionBus = dbus.sessionBus();
+var dbus = require('dbus-native')
+var sessionBus = dbus.sessionBus()
 
 contextMenu({
     prepend: (defaultActions, params, browserWindow) => [
@@ -22,6 +22,12 @@ contextMenu({
             visible: params.mediaType === 'image',
             click: () => {
                 shell.openExternal(params.srcURL);
+            }
+        },
+        {
+            label: 'Reload',
+            click: () => {
+                browserWindow.reload();
             }
         }
     ]
@@ -56,6 +62,15 @@ const createWindow = () => {
             console.log('Inserting css')
             win.webContents.insertCSS(data)
         });
+        /*fs.readFile(path.join(__dirname, 'compact.css'), 'utf-8', (err, data) => {
+            if (err) {
+                console.error('An error while trying to read a file occured ', err);
+                return;
+            }
+
+            console.log('Inserting compact css')
+            win.webContents.insertCSS(data)
+        });*/
         fs.readFile(path.join(__dirname, 'notifications_hook.js'), 'utf-8', (err, data) => {
             if (err) {
                 console.error('An error while trying to read a file occured ', err);
@@ -63,6 +78,15 @@ const createWindow = () => {
             }
 
             console.log('Executing notifications hook')
+            win.webContents.executeJavaScript(data)
+        });
+        fs.readFile(path.join(__dirname, 'ui_hook.js'), 'utf-8', (err, data) => {
+            if (err) {
+                console.error('An error while trying to read a file occured ', err);
+                return;
+            }
+
+            console.log('Executing UI hook')
             win.webContents.executeJavaScript(data)
         });
     })
@@ -89,6 +113,28 @@ const createWindow = () => {
 
 }
 
+ipcMain.handle('compact-mode:enable', async (event) => {
+    const webContents = event.sender
+    const win = BrowserWindow.fromWebContents(webContents)
+    fs.readFile(path.join(__dirname, 'compact.css'), 'utf-8', (err, data) => {
+        if (err) {
+            console.error('An error while trying to read a file occured ', err);
+            return;
+        }
+
+        console.log('Inserting compact css')
+        win.webContents.insertCSS(data)
+    });
+    win.setSize(1000, 600)
+})
+
+ipcMain.handle('compact-mode:disable', async (event) => {
+    const webContents = event.sender
+    const win = BrowserWindow.fromWebContents(webContents)
+    win.reload()
+    win.setSize(1200, 700)
+})
+
 ipcMain.handle('notifications:push', async (event, title, content, imageURL) => {
     const response = await fetch(imageURL);
     const blob = await response.blob();
@@ -97,8 +143,8 @@ ipcMain.handle('notifications:push', async (event, title, content, imageURL) => 
     let image = nativeImage.createFromBuffer(buffer)
     console.log(image.toDataURL())
     new Notification({
-        title: 'Messenger',
-        body: title + ': ' + content,
+        title: title,
+        body: content,
         icon: image
     }).show();
 })
