@@ -10,7 +10,7 @@ function checkMessages(notify) {
         // and skipping first - first span's textContent would return everything (both user and message)
         // That would prolly be less likely to break, since facebook will probably still use <span> for text
         // and those random class selectors are way more likely to change (I expect #:rk: to stay same)
-        let mainElement = el.parentElement.parentElement.parentElement.parentElement
+        let mainElement = el.parentElement.parentElement.parentElement.parentElement.parentElement
         let mainText = mainElement.querySelectorAll(".x1lliihq.x193iq5w.x6ikm8r.x10wlt62.xlyipyv.xuxw1ft")
         let imageSrc = mainElement.querySelector("img").src
         let user = mainText[0].textContent
