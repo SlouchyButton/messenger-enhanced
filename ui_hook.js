@@ -1,6 +1,7 @@
 
 function pollContactsHeader() {
-    if (document.querySelector("[role=\"navigation\"]:nth-child(1)").childNodes[0].childNodes[1].querySelector(".x9f619>.x9f619>.x9f619>.x9f619>.x78zum5.x2lah0s") != null) {
+    if (document.querySelector("[role=\"navigation\"]:nth-child(1)") != null &&
+            document.querySelector("[role=\"navigation\"]:nth-child(1)").childNodes[0].childNodes[1].querySelector(".x9f619>.x9f619>.x9f619>.x9f619>.x78zum5.x2lah0s") != null) {
         root_el = document.querySelector("[role=\"navigation\"]:nth-child(1)").childNodes[0].childNodes[1].querySelector(".x9f619>.x9f619>.x9f619>.x9f619>.x78zum5.x2lah0s")
         let ui_el = document.createElement("div")
         ui_el.classList.add("x78zum5", "x2lah0s")
