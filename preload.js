@@ -22,5 +22,6 @@ contextBridge.exposeInMainWorld('notifications', {
 
 contextBridge.exposeInMainWorld('compactMode', {
     enable: () => ipcRenderer.invoke('compact-mode:enable'),
-    disable: () => ipcRenderer.invoke('compact-mode:disable')
+    disable: () => ipcRenderer.invoke('compact-mode:disable'),
+    get: () => ipcRenderer.invoke('compact-mode:get')
 })

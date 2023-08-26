@@ -4,7 +4,7 @@ const config = { attributes: false, characterData: true, childList: false, subtr
 let unreadMessages = {};
 
 function checkMessages(notify) {
-    document.querySelector("#\\:rk\\:").querySelectorAll('[aria-label="Mark as read"]').forEach((el) => {
+    document.querySelector('[role="navigation"]').querySelectorAll('[aria-label="Mark as read"]').forEach((el) => {
         // This magic might stop working, we will have to check later
         // Alternative way is iterating through <span> elements and finding two different values
         // and skipping first - first span's textContent would return everything (both user and message)
@@ -29,9 +29,9 @@ function checkMessages(notify) {
 }
 
 function pollContactsList() {
-    if (document.querySelector("#\\:rk\\:") != null) {
+    if (document.querySelector('[role="navigation"]') != null) {
         // Start observing the target node for configured mutations
-        observer.observe(document.querySelector("#\\:rk\\:"), config)
+        observer.observe(document.querySelector('[role="navigation"]'), config)
         console.log("Notifications hooked")
         setTimeout(checkMessages.bind(null, false), 5000);
     } else {

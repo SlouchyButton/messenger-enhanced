@@ -45,6 +45,8 @@ const createWindow = () => {
         icon: path.join(__dirname, '/images/logo.png')
     })
 
+    win.compactMode = true;
+
     win.setMenuBarVisibility(false)
 
     //win.loadFile('index.html')
@@ -89,6 +91,18 @@ const createWindow = () => {
             console.log('Executing UI hook')
             win.webContents.executeJavaScript(data)
         });
+        if (win.compactMode == true) {
+            win.setSize(1000, 600)
+            fs.readFile(path.join(__dirname, 'compact.css'), 'utf-8', (err, data) => {
+                if (err) {
+                    console.error('An error while trying to read a file occured ', err);
+                    return;
+                }
+        
+                console.log('Inserting compact css')
+                win.webContents.insertCSS(data)
+            });
+        }
     })
     win.webContents.setWindowOpenHandler((details) => {
         //console.log('Requested window with details: ', details)
@@ -116,6 +130,7 @@ const createWindow = () => {
 ipcMain.handle('compact-mode:enable', async (event) => {
     const webContents = event.sender
     const win = BrowserWindow.fromWebContents(webContents)
+    win.compactMode = true
     fs.readFile(path.join(__dirname, 'compact.css'), 'utf-8', (err, data) => {
         if (err) {
             console.error('An error while trying to read a file occured ', err);
@@ -131,8 +146,15 @@ ipcMain.handle('compact-mode:enable', async (event) => {
 ipcMain.handle('compact-mode:disable', async (event) => {
     const webContents = event.sender
     const win = BrowserWindow.fromWebContents(webContents)
+    win.compactMode = false
     win.reload()
     win.setSize(1200, 700)
+})
+
+ipcMain.handle('compact-mode:get', async (event) => {
+    const webContents = event.sender
+    const win = BrowserWindow.fromWebContents(webContents)
+    return win.compactMode
 })
 
 ipcMain.handle('notifications:push', async (event, title, content, imageURL) => {
