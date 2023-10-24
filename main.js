@@ -29,6 +29,12 @@ contextMenu({
             click: () => {
                 browserWindow.reload();
             }
+        },
+        {
+            label: 'Open DevTools',
+            click: () => {
+                browserWindow.webContents.openDevTools()
+            }
         }
     ]
 });
