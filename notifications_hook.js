@@ -33,10 +33,18 @@ function pollContactsList() {
         // Start observing the target node for configured mutations
         observer.observe(document.querySelector('[role="navigation"]'), config)
         console.log("Notifications hooked")
-        setTimeout(checkMessages.bind(null, false), 5000);
+        checkLoop()
+        console.log("Notifications fallback loop started")
     } else {
         setTimeout(pollContactsList, 100)
     }
+}
+
+function checkLoop() {
+    setTimeout(() => {
+        checkMessages(true)
+        checkLoop()
+    }, 5000)
 }
 
 const callback = (mutationList, observer) => {
