@@ -5,23 +5,31 @@
     margin-bottom: 2px !important;
 }
 /* remove left bar */
-.x1247r65 {
+[aria-label='Inbox switcher'] {
     width: 0 !important;
     display: none !important;
 }
 /* compact context menu on contact */
-.x1i10hfl.xjbqb8w.x6umtig.x1b1mbwd.xaqea5y.xav7gou.xe8uvvx.x1hl2dhg.xggy1nq.x1o1ewxj.x3x9cwd.x1e5q0jg.x13rtm0m.x87ps6o.x1lku1pv.x1a2a7pz.xjyslct.x9f619.x1ypdohk.x78zum5.x1q0g3np.x2lah0s.xnqzcj9.x1gh759c.xdj266r.xat24cr.x1344otq.x1de53dj.x1n2onr6.x16tdsg8.x1ja2u2z.x6s0dn4.x1y1aw1k.xwib8y2 {
-/*div.xjyslct, a.x1i10hfl {*/ 
-    padding: 2px !important;
+.x1n2onr6.xcxhlts.xi5betq[role='menu'] [role='menuitem'] {
+    padding: 3px !important;
     padding-right: 20px !important;
 }
-.x14nfmen.x1e56ztr.xktsk01.x1d52u69.x1xmf6yo/*hr.x14nfmen*/ {
-    margin-top: 2px !important;
-    margin-bottom: 2px !important;
+.x1n2onr6.xcxhlts.xi5betq[role='menu'] {
+    margin-top: 7px !important;
+    margin-bottom: 7px !important;
 }
 .xx8ngbg {
     width: auto !important;
 }
+/* compact emoji context menu */
+/*[aria-label='Messages reactions'][role='menu'] [role='menuitem'] {
+    padding: 3px !important;
+}
+[aria-label='Messages reactions'][role='menu'] {
+    padding: 3px !important;
+    margin-left: 7px !important;
+    margin-right: 7px !important;
+}*/
 
 /* inhibit responsive design to allow for compact theme to thrive */
 .x1cvmir6, .x12nzpgo.x12nzpgo {
