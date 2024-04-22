@@ -2,7 +2,7 @@
 function pollContactsHeader() {
     let root_el = ""
     try {
-        root_el = document.querySelector("[aria-label=\"Thread list\"]").childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1] 
+        root_el = document.querySelector("[aria-label=\"Thread list\"]").childNodes[0].childNodes[0].childNodes[0].childNodes[1] 
     } catch (error) {
         setTimeout(pollContactsHeader, 100)
         return
