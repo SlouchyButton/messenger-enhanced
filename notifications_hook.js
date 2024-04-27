@@ -17,9 +17,12 @@ function checkMessages(notify) {
         let message = mainText[1].textContent
 
         if (notify && (unreadMessages[user] == null || unreadMessages[user] != message)) {
-            //notify here
-            window.notifications.push(user, message, imageSrc)
             console.log("New message from ", user, " containing ", message, " user avatar ", imageSrc)
+            if (message.includes("You: ")) {
+                console.log("Message seems to be yours, this is a bug in Messenger, skipping.")
+            } else {
+                window.notifications.push(user, message, imageSrc)
+            }
         }
         if (!notify) {
             console.log("Already recieved message from ", user, " containing ", message, " user avatar ", imageSrc)
