@@ -3,8 +3,6 @@
 
 This project mainly exists, because [Caprine](https://github.com/sindresorhus/caprine) is in semi-maintenance mode and I do not have experience with typescript, nor do I currently have time to figure out Caprine codebase. On the other hand I do use Messenger daily and for a long time I wanted something more polished. This is *NOT* a direct alternative to Caprine, since this project does not have and probably never will have privacy centric features of Caprine. I do not use those features and not really care for them, on the other hand I will try to make this project as polished as I can. There are few things (like notifications), that I want to fix and I would be very happy if this project could serve as a reference to solving those issues in Caprine.
 
-*Note: This project is in very early stages, there is no installer, no packaging prepared and was tested ONLY on Arch Linux with Gnome 43.4. Use at your own risk, might break at any time in main branch. Only thing provided is reference .desktop file that I use.*
-
 Project uses dark mode styling from this project, with owner's approval: [jerry1100/messenger-dark-theme](https://github.com/jerry1100/messenger-dark-theme)
 
 Icon is specifically this bad on purpose to play it safe in regards to trademark (since the logo is trademarked by Meta). Even tho the logo that is trademarked seems to be the old (blue-only logo), I want to play it safe. If you want to use official logo of Messenger app, there is a Wikimedia page with Messenger logo in svg that you can download, convert to png and replace the logo in images/ folder.

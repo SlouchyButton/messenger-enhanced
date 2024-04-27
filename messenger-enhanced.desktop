@@ -1,11 +1,11 @@
 [Desktop Entry]
 Categories=Network
 Comment=Facebook Messenger webapp electron wrapper with enhancements.
-Exec='Messenger enhanced' %U
-Icon=[REPO LOCATION]/messenger-enhanced/images/logo.png
+Exec='messenger-enhanced' %U
+Icon=[REPO LOCATION]/messenger-enhanced/images/io.github.messenger-enhanced.svg
 Name=Messenger Enhanced
 Name[en_US]=Messenger Enhanced
-Path=[REPO LOCATION]/messenger-enhanced/out/Messenger\senhanced-linux-x64
+Path=[REPO LOCATION]/messenger-enhanced/out/messenger-enhanced-linux-x64
 Terminal=false
 Type=Application
 StartupNotify=true
