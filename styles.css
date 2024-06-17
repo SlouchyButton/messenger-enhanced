@@ -36,6 +36,14 @@ body::-webkit-scrollbar {
     background-color: #8a8a8a;
 }
 
+:root,
+.__fb-dark-mode,
+.__fb-light-mode {
+    --messenger-card-corner-radius: 0 !important;
+    --messenger-card-spacing: 0 !important;
+    --messenger-card-box-shadow: 0 !important;
+}
+
 @media (prefers-color-scheme: dark) {
     svg:not([fill]):not(.crt8y2ji) path:not([fill]) {
         fill: var(--primary-icon) !important;
@@ -548,3 +556,4 @@ body::-webkit-scrollbar {
         box-shadow: 0 2px 4px var(--shadow-2);
     }
 }
+
